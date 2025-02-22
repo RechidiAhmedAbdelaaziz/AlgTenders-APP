@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:tender_app/features/auth/config/auth.route.dart';
 import 'package:tender_app/features/auth/logic/auth.cubit.dart';
 import 'package:tender_app/features/auth/modules/login/view/screen/login.screen.dart';
+import 'package:tender_app/features/home/config/home.route.dart';
 
 import '../di/locator.dart';
 
@@ -28,6 +29,7 @@ class AppRouter {
     final bases = <AppRouteBase>[
       AuthRoute.login(),
       AuthRoute.signup(),
+      HomeRoute(),
     ];
     return bases.map((base) => base.route).toList();
   }

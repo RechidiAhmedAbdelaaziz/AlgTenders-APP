@@ -18,7 +18,7 @@ class CateogryDropdown extends StatelessWidget {
         builder: (context) {
           final items =
               context
-                  .watch<CategoryCubit>() 
+                  .watch<CategoryCubit>()
                   .state
                   .categories
                   .subCatories;
