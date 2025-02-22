@@ -7,6 +7,7 @@ abstract class FeaturesDependency {
     final dependencies = <FeaturesDependency>[
       AuthDependency(),
       TenderDependency(),
+      AnnouncerDependency(),
     ];
 
     for (final dependency in dependencies) {
