@@ -17,32 +17,44 @@ class AppCheckBox extends StatefulWidget {
 }
 
 class AppCheckBoxState extends State<AppCheckBox> {
-  late bool _value;
+  bool? _value;
 
   @override
   void initState() {
-    widget.controller.initValue(false);
-    _value = widget.controller.value!;
+    _value = widget.controller.value;
+
+    widget.controller.addListener(() {
+      setState(() => _value = widget.controller.value);
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 10.w,
+      spacing: 7.w,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Checkbox(
-          value: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value ?? false;
-              widget.controller.setValue(_value);
-            });
+        InkWell(
+          onTap: () {
+            widget.controller.setValue(!(_value ?? false));
           },
+          child: Icon(
+            _value ?? false
+                ? Icons.check_box
+                : Icons.check_box_outline_blank,
+            color: KColors.dark,
+            size: 30.sp,
+          ),
         ),
+
         Text(
           widget.title,
-          style: TextStyle(fontSize: 12.sp, color: KColors.dark),
+          style: TextStyle(
+            fontSize: 18.sp,
+            color: KColors.dark,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ],
     );

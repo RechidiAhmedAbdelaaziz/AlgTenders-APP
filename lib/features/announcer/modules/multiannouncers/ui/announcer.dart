@@ -18,7 +18,7 @@ class Announcer extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CircleAvatar(
             radius: 25.sp,
@@ -28,6 +28,7 @@ class Announcer extends StatelessWidget {
           Expanded(
             child: Text(
               announcer.name ?? '',
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 16,

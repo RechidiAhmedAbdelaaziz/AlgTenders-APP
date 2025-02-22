@@ -14,9 +14,31 @@ class _Mobile extends StatelessWidget {
     return Column(
       children: [
         heightSpace(50),
-        KSearchBar(
-          controller: filters.keywordController,
-          onSearch: cubit.filterTenders,
+        Row(
+          children: [
+            Expanded(
+              child: KSearchBar(
+                controller: filters.keywordController,
+                onSearch: cubit.filterTenders,
+              ),
+            ),
+            widthSpace(10),
+            InkWell(
+              onTap:
+                  () => context.dialogWith<bool>(
+                    child: TenderFilter(filters),
+                    onResult: (result) => cubit.filterTenders(),
+                  ),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: KColors.primary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(Icons.filter_list, color: Colors.white),
+              ),
+            ),
+          ],
         ),
         Expanded(
           child: RefreshIndicator(

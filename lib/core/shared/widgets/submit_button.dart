@@ -59,23 +59,22 @@ class _SubmitButtonState extends State<SubmitButton> {
               borderRadius: BorderRadius.all(Radius.circular(8.r)),
               border: Border.all(color: widget.textColor),
             ),
-            child: Center(
-              child:
-                  widget.isLoading
-                      ? CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          widget.textColor,
-                        ),
-                      )
-                      : Text(
-                        widget.title,
-                        style: TextStyle(
-                          color: widget.textColor,
-                          fontSize: 20.spMax,
-                          fontWeight: FontWeight.w500,
-                        ),
+            alignment: Alignment.center,
+            child:
+                widget.isLoading
+                    ? CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        widget.textColor,
                       ),
-            ),
+                    )
+                    : Text(
+                      widget.title,
+                      style: TextStyle(
+                        color: widget.textColor,
+                        fontSize: 20.spMax,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
           ),
         ],
       ),

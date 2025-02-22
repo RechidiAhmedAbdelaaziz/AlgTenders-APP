@@ -7,14 +7,15 @@ class MultiDropDownMenu extends StatefulWidget {
   final List<String> items;
   final ListEditingcontroller<String> controller;
   final String? title;
-  final bool initalized;
+  final List<String>? initialValue;
   final String? Function(List<String>? items)? validator;
+
   const MultiDropDownMenu({
     super.key,
     required this.items,
     required this.controller,
     this.title,
-    this.initalized = true,
+    this.initialValue,
     this.validator,
   });
 
@@ -25,17 +26,9 @@ class MultiDropDownMenu extends StatefulWidget {
 class _MultiDropDownMenuState extends State<MultiDropDownMenu> {
   @override
   void initState() {
-    if (widget.initalized) {
-      widget.controller.setList(
-        widget.controller.value.isEmpty
-            ? widget.items
-            : widget.controller.value,
-      );
-
-      widget.controller.addListener(() {
-        setState(() {});
-      });
-    }
+    widget.controller.addListener(() {
+      setState(() {});
+    });
 
     super.initState();
   }

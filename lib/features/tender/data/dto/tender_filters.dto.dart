@@ -7,36 +7,36 @@ import 'package:tender_app/features/announcer/data/model/announcer.model.dart';
 // import 'package:tender_app/features/announcer/data/models/announcer.model.dart';
 
 class TenderFiltersDto extends PaginationDto {
-  final EditingController<AnnouncerModel> announcer;
+  final EditingController<AnnouncerModel> announcerController;
   final EditingController<DateTime> publishedAfter;
   final EditingController<DateTime> closingBefore;
-  final TextEditingController marketType;
-  final ListEditingcontroller<String> industries;
+  final TextEditingController marketTypeController;
+  final ListEditingcontroller<String> categoryController;
   final EditingController<bool> isStartup;
   final ListEditingcontroller<String> regions;
 
   TenderFiltersDto()
-    :   announcer = EditingController<AnnouncerModel>(),
+    : announcerController = EditingController<AnnouncerModel>(),
       publishedAfter = EditingController<DateTime>(),
       closingBefore = EditingController<DateTime>(),
-      marketType = TextEditingController(),
-      industries = ListEditingcontroller<String>(),
+      marketTypeController = TextEditingController(),
+      categoryController = ListEditingcontroller<String>(),
       isStartup = EditingController<bool>(),
       regions = ListEditingcontroller<String>();
 
   @override
   Map<String, dynamic> toJson() {
     final json = super.toJson();
-    json['announcer'] = announcer.value?.id;
+    json['announcer'] = announcerController.value?.id;
     json['publishedAfter'] = publishedAfter.value?.toIso8601String();
     json['closingBefore'] = closingBefore.value?.toIso8601String();
 
-    if (marketType.text.isNotEmpty) {
-      json['marketType'] = marketType.text;
+    if (marketTypeController.text.isNotEmpty) {
+      json['marketType'] = marketTypeController.text;
     }
 
-    if (industries.value.isNotEmpty) {
-      json['industries'] = industries.value;
+    if (categoryController.value.isNotEmpty) {
+      json['industries'] = categoryController.value;
     }
 
     if (isStartup.value == true) json['isStartup'] = isStartup.value;
@@ -46,22 +46,22 @@ class TenderFiltersDto extends PaginationDto {
 
   @override
   void dispose() {
-    announcer.dispose();
+    announcerController.dispose();
     publishedAfter.dispose();
     closingBefore.dispose();
-    marketType.dispose();
-    industries.dispose();
+    marketTypeController.dispose();
+    categoryController.dispose();
     isStartup.dispose();
     regions.dispose();
     super.dispose();
   }
 
   void clear() {
-    announcer.clear();
+    announcerController.clear();
     publishedAfter.clear();
     closingBefore.clear();
-    marketType.clear();
-    industries.clear();
+    marketTypeController.clear();
+    categoryController.clear();
     isStartup.clear();
     regions.clear();
   }

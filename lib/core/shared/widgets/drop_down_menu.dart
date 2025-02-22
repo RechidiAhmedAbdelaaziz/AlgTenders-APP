@@ -2,33 +2,44 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class KDropDownMenu extends StatelessWidget {
+class KDropDownMenu extends StatefulWidget {
   final List<String> items;
   final TextEditingController controller;
   final String? title;
-  final bool initalized;
+  final String? initialValue;
 
   const KDropDownMenu({
     super.key,
     this.title,
     required this.items,
     required this.controller,
-    this.initalized = true,
+    this.initialValue,
   });
 
   @override
+  State<KDropDownMenu> createState() => _KDropDownMenuState();
+}
+
+class _KDropDownMenuState extends State<KDropDownMenu> {
+  @override
+  void initState() {
+    widget.controller.addListener(() {
+      if (widget.controller.text.isEmpty) {
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (initalized) {
-      controller.text =
-          controller.text.isEmpty ? items.first : controller.text;
-    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 10.h,
       children: [
-        if (title != null)
+        if (widget.title != null)
           Text(
-            title!,
+            widget.title!,
             style: TextStyle(
               color: Colors.black,
               fontSize: 14.spMax,
@@ -39,14 +50,13 @@ class KDropDownMenu extends StatelessWidget {
           decoration: CustomDropdownDecoration(
             closedBorder: Border.all(color: Colors.grey),
           ),
-          items: items,
-          initialItem: items.contains(controller.text)
-              ? controller.text
-              : initalized
-                  ? items.first
-                  : null,
+          items: widget.items,
+          initialItem:
+              widget.items.contains(widget.controller.text)
+                  ? widget.controller.text
+                  : widget.initialValue,
           onChanged: (value) {
-            if (value != null) controller.text = value;
+            if (value != null) widget.controller.text = value;
           },
         ),
       ],

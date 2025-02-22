@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tender_app/core/extension/localization.extension.dart';
 import 'package:tender_app/core/shared/classes/dimensions.dart';
 import 'package:tender_app/core/shared/classes/editioncontollers/generic_editingcontroller.dart';
+import 'package:tender_app/core/themes/colors.dart';
 
-class DatePicker extends StatefulWidget {
-  const DatePicker({
+class KDatePicker extends StatefulWidget {
+  const KDatePicker({
     super.key,
     required this.controller,
     this.firstDate,
@@ -18,18 +20,20 @@ class DatePicker extends StatefulWidget {
   final String? title;
 
   @override
-  State<DatePicker> createState() => _DatePickerState();
+  State<KDatePicker> createState() => _KDatePickerState();
 }
 
-class _DatePickerState extends State<DatePicker> {
-  late DateTime date;
+class _KDatePickerState extends State<KDatePicker> {
+  DateTime? date;
 
   @override
   void initState() {
-    widget.controller.setValue(
-      widget.controller.value ?? DateTime.now(),
-    );
-    date = widget.controller.value!;
+    date = widget.controller.value;
+
+    widget.controller.addListener(() {
+      setState(() => date = widget.controller.value);
+    });
+
     super.initState();
   }
 
@@ -53,18 +57,21 @@ class _DatePickerState extends State<DatePicker> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (widget.title != null)
+          if (widget.title != null) ...[
             Text(
               widget.title!,
               style: TextStyle(
-                fontSize: 16.spMax,
                 color: Colors.black,
+                fontSize: 14.spMax,
+                fontWeight: FontWeight.w600,
               ),
             ),
+            heightSpace(5),
+          ],
           Container(
             padding: EdgeInsets.symmetric(
               vertical: 10.h,
-              horizontal: 20.w,
+              horizontal: 8.w,
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -77,10 +84,15 @@ class _DatePickerState extends State<DatePicker> {
                 widthSpace(12),
                 Expanded(
                   child: Text(
-                    _formatDate(date),
+                    date != null
+                        ? _formatDate(date!)
+                        : '${'SelectDate'.tr(context)}...',
                     style: TextStyle(
-                      fontSize: 16.spMax,
-                      color: Colors.black,
+                      fontSize: 14.sp,
+                      color:
+                          date != null
+                              ? KColors.black
+                              : KColors.darkGrey,
                     ),
                   ),
                 ),

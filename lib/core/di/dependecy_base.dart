@@ -8,6 +8,7 @@ abstract class FeaturesDependency {
       AuthDependency(),
       TenderDependency(),
       AnnouncerDependency(),
+      CategoryDependency(),
     ];
 
     for (final dependency in dependencies) {

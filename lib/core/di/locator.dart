@@ -10,6 +10,7 @@ import 'package:tender_app/core/services/dio/dio.service.dart';
 import 'package:tender_app/core/services/filepicker/filepick.service.dart';
 import 'package:tender_app/features/announcer/config/announcer.dependency.dart';
 import 'package:tender_app/features/auth/config/auth.dependency.dart';
+import 'package:tender_app/features/category/configs/category.dependency.dart';
 import 'package:tender_app/features/tender/config/tender.dependency.dart';
 
 part 'dependecy_base.dart';

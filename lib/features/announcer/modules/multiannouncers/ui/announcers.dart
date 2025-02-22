@@ -26,16 +26,16 @@ class Announcers extends StatelessWidget {
           final cubit = context.read<MultiAnnouncerCubit>();
 
           return Container(
-            width: 200.w,
-            padding: EdgeInsets.symmetric(
+            margin: EdgeInsets.symmetric(
               horizontal: 16.w,
-              vertical: 16.h,
+              vertical: 24.h,
             ),
             decoration: BoxDecoration(
               color: KColors.white,
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 KSearchBar(
                   controller: cubit.searchController,
@@ -51,7 +51,17 @@ class Announcers extends StatelessWidget {
                       itemBuilder:
                           (announcer) => InkWell(
                             onTap: () => context.back(announcer),
-                            child: Announcer(announcer),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  20.r,
+                                ),
+                                border: Border.all(
+                                  color: KColors.grey,
+                                ),
+                              ),
+                              child: Announcer(announcer),
+                            ),
                           ),
                       isLoading: context.select(
                         (MultiAnnouncerCubit cubit) =>
