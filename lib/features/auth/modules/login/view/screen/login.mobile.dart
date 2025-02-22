@@ -8,9 +8,7 @@ class _Mobile extends DeviceScreen<LoginStrings> {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         state.onError(context.showErrorDialog);
-        state.onSave((_) {
-          //TODO navigate to home
-        });
+        state.onSave((_) => context.offAll(TenderNavigator.tenders()));
       },
       child: Scaffold(
         backgroundColor: KColors.white,

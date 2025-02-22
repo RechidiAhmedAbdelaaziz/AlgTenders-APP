@@ -14,7 +14,7 @@ class PaginationBuilder<T> extends StatefulWidget {
     this.scrollDirection = Axis.vertical,
     required this.items,
     required this.itemBuilder,
-     this.onLoadMore,
+    this.onLoadMore,
     this.separator,
     this.isLoading = false,
     this.onAdd,
@@ -44,23 +44,26 @@ class _PaginationBuilderState<T> extends State<PaginationBuilder<T>> {
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
+      shrinkWrap: true,
       controller: _scrollController,
       scrollDirection: widget.scrollDirection,
       itemCount: widget.items.length + 1,
-      itemBuilder: (context, index) => index < widget.items.length
-          ? widget.itemBuilder(widget.items[index])
-          : widget.isLoading
-              ? Center(child: CircularProgressIndicator())
-              : widget.onAdd != null
+      itemBuilder:
+          (context, index) =>
+              index < widget.items.length
+                  ? widget.itemBuilder(widget.items[index])
+                  : widget.isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : widget.onAdd != null
                   ? Center(
-                      child: IconButton(
-                        icon: const Icon(Icons.add),
-                        onPressed: widget.onAdd,
-                      ),
-                    )
+                    child: IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: widget.onAdd,
+                    ),
+                  )
                   : SizedBox.shrink(),
-      separatorBuilder: (context, index) =>
-          widget.separator ?? SizedBox.shrink(),
+      separatorBuilder:
+          (context, index) => widget.separator ?? SizedBox.shrink(),
     );
   }
 }

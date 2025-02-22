@@ -1,4 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tender_app/core/themes/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = '/home';
@@ -8,6 +10,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: KColors.backgroundColor,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: child,
+      ),
+    );
   }
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tender_app/core/extension/localization.extension.dart';
 import 'package:tender_app/core/shared/classes/dimensions.dart';
 import 'package:tender_app/core/themes/colors.dart';
 
@@ -45,19 +46,19 @@ class _KSearchBarState extends State<KSearchBar> {
       width: widget.width,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: KColors.grey),
       ),
       child: Row(
         children: [
-          const Icon(Icons.search),
+          const Icon(Icons.search, color: KColors.primary),
           widthSpace(8),
           Expanded(
             child: TextField(
               controller: widget.controller,
               onChanged: _onSearchChanged, // Use debounced onChanged
-              decoration: const InputDecoration(
-                hintText: 'Search',
+              decoration:  InputDecoration(
+                hintText: 'Search'.tr(context),
                 border: InputBorder.none,
               ),
             ),

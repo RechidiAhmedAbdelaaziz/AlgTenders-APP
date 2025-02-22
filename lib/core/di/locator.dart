@@ -9,6 +9,7 @@ import 'package:tender_app/core/services/cloudstorage/cloudinary/cloudinary.serv
 import 'package:tender_app/core/services/dio/dio.service.dart';
 import 'package:tender_app/core/services/filepicker/filepick.service.dart';
 import 'package:tender_app/features/auth/config/auth.dependency.dart';
+import 'package:tender_app/features/tender/config/tender.dependency.dart';
 
 part 'dependecy_base.dart';
 

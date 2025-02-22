@@ -17,7 +17,7 @@ class AppTextButton extends StatelessWidget {
       onTap: onTap,
       child: Text(
         title,
-        style: TextStyle(fontSize: 12.sp, color: KColors.black),
+        style: TextStyle(fontSize: 12.sp, color: KColors.dark),
       ),
     );
   }

@@ -50,7 +50,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
           Text(
             widget.title!,
             style: TextStyle(
-              color: KColors.black,
+              color: KColors.dark,
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
@@ -69,7 +69,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                   ? null
                   : widget.maxLines,
           style: TextStyle(
-            color: KColors.black,
+            color: KColors.dark,
             fontSize: 16.sp,
             fontWeight: FontWeight.w400,
           ),

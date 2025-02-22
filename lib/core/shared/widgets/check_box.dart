@@ -42,7 +42,7 @@ class AppCheckBoxState extends State<AppCheckBox> {
         ),
         Text(
           widget.title,
-          style: TextStyle(fontSize: 12.sp, color: KColors.black),
+          style: TextStyle(fontSize: 12.sp, color: KColors.dark),
         ),
       ],
     );

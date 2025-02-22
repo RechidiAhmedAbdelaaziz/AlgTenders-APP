@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:tender_app/core/router/router.dart';
 import 'package:tender_app/core/router/routes.dart';
 import 'package:tender_app/features/home/view/home.screen.dart';
+import 'package:tender_app/features/tender/config/tender.route.dart';
 
 class HomeRoute extends AppRouteBase {
   HomeRoute() : super(path: HomeScreen.route, name: AppRoutes.home);
@@ -20,6 +21,6 @@ class HomeRoute extends AppRouteBase {
       ShellRoute(builder: _homePageBuilder, routes: _buildRoutes());
 
   List<RouteBase> _buildRoutes() {
-    return <AppRouteBase>[].map((e) => e.route).toList();
+    return <AppRouteBase>[TenderRoute()].map((e) => e.route).toList();
   }
 }
