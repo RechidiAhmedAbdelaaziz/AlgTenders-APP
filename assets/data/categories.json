@@ -1,0 +1,99 @@
+{
+    "data": [
+        {
+            "title": "Industrie",
+            "subCategories": [
+                "Industrie plastique et caoutchouc",
+                "Industries sidérurgiques, métallurgiques et mécaniques",
+                "Énergies renouvelables",
+                "Industrie de la cellulose, papier, carton et emballage",
+                "Mines, cimenterie, agrégats et granulats",
+                "Industries manufacturières",
+                "Equipements industriels, outillage et pièces détachées",
+                "Industries électroniques et matériel audio-visuel et électroménager",
+                "Équipement électrique",
+                "Chimie et pétrochimie",
+                "Energie et services pétroliers"
+            ]
+        },
+        {
+            "title": "BTPH",
+            "subCategories": [
+                "Hydraulique, Assainissement & traitement des eaux, adduction eau potable",
+                "Travaux de menuiserie bois et PVC, métallique et serrurerie",
+                "Travaux d'étanchéification",
+                "Froid et Climatisation",
+                "Travaux publics",
+                "Plomberie et Chauffage centrale",
+                "Travaux de plâtrerie, peinture et vitrerie",
+                "Travaux de maçonnerie générale et gros œuvre de bâtiment TCE, CES",
+                "Travaux de revêtement des sols et des murs",
+                "Matériaux de construction",
+                "Bâtiments et génie civil",
+                "Electricité bâtiment et éclairage public",
+                "Travaux de montage de structures métalliques et charpente",
+                "Architecture et urbanisme"
+            ]
+        },
+        {
+            "title": "Services",
+            "subCategories": [
+                "Nettoiement, entretien urbain, enlèvement et traitement des déchets",
+                "Tourisme, Voyage et Billetterie",
+                "Services de nettoyage et 3D, Dératisation, Désinfection, Désinsectisation",
+                "Immobilier",
+                "Assurances et banque",
+                "Restauration, hôtellerie",
+                "Services de comptabilité et commissariat aux comptes",
+                "Consulting, formation et certification"
+            ]
+        },
+        {
+            "title": "Agroalimentaire",
+            "subCategories": [
+                "Denrées alimentaires et fournitures diverses",
+                "Industrie Agroalimentaire et matière première",
+                "Agriculture, élevage, forêts et pêche"
+            ]
+        },
+        {
+            "title": "Médical et Laboratoire",
+            "subCategories": [
+                "Pharmacie",
+                "Médical et Paramédical",
+                "Equipements scientifiques et laboratoires"
+            ]
+        },
+        {
+            "title": "Informatique, Communication et Télécommunications",
+            "subCategories": [
+                "Télécommunication et réseaux informatique",
+                "Logiciel, Conseil et Services d'Ingénierie Informatique.",
+                "Impression, édition et communication",
+                "Equipement informatique et bureautique"
+            ]
+        },
+        {
+            "title": "Logistique",
+            "subCategories": [
+                "Transport, levage et manutention",
+                "Port et Aéroport et Transit",
+                "Pneumatique et pièce de rechange auto",
+                "Équipement de transport routier,travaux publics, et maritime",
+                "Aéronautique"
+            ]
+        },
+        {
+            "title": "Autre",
+            "subCategories": [
+                "Vidéosurveillance et Contrôle d'accès",
+                "Sport et loisirs",
+                "HSE et Sécurité industrielle",
+                "Gardiennage et Sécurité physique",
+                "Ameublement et mobilier",
+                "Environnement et Aménagement du territoire",
+                "Habillement et textile"
+            ]
+        }
+    ]
+}

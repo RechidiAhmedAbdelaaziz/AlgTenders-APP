@@ -7,7 +7,7 @@ class EditingController<T> extends ValueNotifier<T?> {
 
   void initValue(T value) {
     if (this.value == null) {
-      this.value = value;
+      super.set = value;
     }
   }
 
