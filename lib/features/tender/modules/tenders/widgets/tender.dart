@@ -6,90 +6,98 @@ class _Tender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      decoration: BoxDecoration(
-        color: KColors.white,
-        borderRadius: BorderRadius.circular(20.r),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildAnnouncerPic(),
-              widthSpace(14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            tender.announcer?.name ?? '',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: KColors.darkGrey,
+    return InkWell(
+      onTap: () {
+        context.to(TenderNavigator.tender(tender));
+      },
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.w,
+          vertical: 16.h,
+        ),
+        decoration: BoxDecoration(
+          color: KColors.white,
+          borderRadius: BorderRadius.circular(20.r),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildAnnouncerPic(),
+                widthSpace(14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              tender.announcer?.name ?? '',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                                color: KColors.darkGrey,
+                              ),
                             ),
                           ),
-                        ),
-                        widthSpace(2),
-                        _buildStartupBadge(context),
-                      ],
-                    ),
-                    heightSpace(8),
-                    Text(
-                      tender.title ?? '',
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
-                        color: KColors.black,
+                          widthSpace(2),
+                          _buildStartupBadge(context),
+                        ],
                       ),
-                    ),
-                    heightSpace(16),
-                    _buildDateRange(),
-                  ],
+                      heightSpace(8),
+                      Text(
+                        tender.title ?? '',
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                          color: KColors.black,
+                        ),
+                      ),
+                      heightSpace(16),
+                      _buildDateRange(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          heightSpace(35),
-          Row(
-            children: [
-              Text(
-                (tender.marketType ?? '').tr(context),
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                  color: KColors.black,
+              ],
+            ),
+            heightSpace(35),
+            Row(
+              children: [
+                Text(
+                  (tender.marketType ?? '').tr(context),
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                    color: KColors.black,
+                  ),
                 ),
-              ),
-              const Spacer(),
-              Icon(
-                Icons.location_on,
-                color: KColors.primary,
-                size: 20.r,
-              ),
-              widthSpace(5),
-              Text(
-                tender.region ?? '',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: KColors.dark,
+                const Spacer(),
+                Icon(
+                  Icons.location_on,
+                  color: KColors.primary,
+                  size: 20.r,
                 ),
-              ),
-            ],
-          ),
-        ],
+                widthSpace(5),
+                Text(
+                  tender.region ?? '',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: KColors.dark,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,9 @@
 {
     "Startup": "Startup",
+    "Published": "Published",
+    "DueDate": "Due Date",
+    "ChargePrice": "Charge Price",
+    "ShowResults": "See the results of this tender",
     "FilterBy": "Filter by",
     "Search": "Search",
     "Categories": "Categories",

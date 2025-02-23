@@ -6,6 +6,7 @@ abstract class AppRoutes {
   static const String signup = 'SIGNUP';
 
   //* TENDER ROUTES
+  static const String tenders = 'TENDERS';
   static const String tender = 'TENDER';
   static const String createTender = 'CREATE_TENDER';
   static const String updateTender = 'UPDATE_TENDER';

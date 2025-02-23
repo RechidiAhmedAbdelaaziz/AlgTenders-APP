@@ -7,6 +7,7 @@ import 'package:tender_app/features/auth/config/auth.route.dart';
 import 'package:tender_app/features/auth/logic/auth.cubit.dart';
 import 'package:tender_app/features/auth/modules/login/view/screen/login.screen.dart';
 import 'package:tender_app/features/home/config/home.route.dart';
+import 'package:tender_app/features/tender/config/tender.route.dart';
 import 'package:tender_app/features/tender/modules/tenders/view/tenders.screen.dart';
 
 import '../di/locator.dart';
@@ -16,7 +17,7 @@ part 'navigator_base.dart';
 
 class AppRouter {
   final routerConfig = GoRouter(
-    initialLocation: TendersScreen.route, 
+    initialLocation: TendersScreen.route,
     routes: _generateRoutes(),
     debugLogDiagnostics: true,
     redirect: _handelRedirect,
@@ -28,9 +29,15 @@ class AppRouter {
 
   static List<RouteBase> _generateRoutes() {
     final bases = <AppRouteBase>[
+      //AUTH ROUTES
       AuthRoute.login(),
       AuthRoute.signup(),
+
+      //HOME ROUTES
       HomeRoute(),
+
+      //Tender Routes
+      TenderRoute.tender(),
     ];
     return bases.map((base) => base.route).toList();
   }

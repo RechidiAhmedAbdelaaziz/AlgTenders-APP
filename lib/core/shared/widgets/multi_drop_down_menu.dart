@@ -39,15 +39,25 @@ class _MultiDropDownMenuState extends State<MultiDropDownMenu> {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 10.h,
       children: [
-        if (widget.title != null)
-          Text(
-            widget.title!,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 14.spMax,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+        Row(
+          children: [
+            if (widget.title != null)
+              Text(
+                widget.title!,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14.spMax,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            const Spacer(),
+            if (widget.controller.value.isNotEmpty)
+              InkWell(
+                onTap: widget.controller.clear,
+                child: Icon(Icons.restore),
+              ),
+          ],
+        ),
         FormField<List<String>>(
           validator: widget.validator,
           initialValue: widget.controller.value,

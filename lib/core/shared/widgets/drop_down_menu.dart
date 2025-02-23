@@ -23,11 +23,7 @@ class KDropDownMenu extends StatefulWidget {
 class _KDropDownMenuState extends State<KDropDownMenu> {
   @override
   void initState() {
-    widget.controller.addListener(() {
-      if (widget.controller.text.isEmpty) {
-        setState(() {});
-      }
-    });
+    widget.controller.addListener(() => setState(() {}));
     super.initState();
   }
 
@@ -37,15 +33,26 @@ class _KDropDownMenuState extends State<KDropDownMenu> {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 10.h,
       children: [
-        if (widget.title != null)
-          Text(
-            widget.title!,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 14.spMax,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+        Row(
+          children: [
+            if (widget.title != null)
+              Text(
+                widget.title!,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14.spMax,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            const Spacer(),
+            if (widget.controller.text.isNotEmpty)
+              InkWell(
+                onTap: widget.controller.clear,
+                child: Icon(Icons.restore),
+              ),
+          ],
+        ),
+
         CustomDropdown.search(
           decoration: CustomDropdownDecoration(
             closedBorder: Border.all(color: Colors.grey),

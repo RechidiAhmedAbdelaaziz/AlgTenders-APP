@@ -10,12 +10,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: KColors.backgroundColor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: child,
-      ),
-    );
+    return Scaffold(backgroundColor: KColors.background, body: child);
   }
 }
